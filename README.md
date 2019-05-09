@@ -20,3 +20,7 @@ sudo ./createnew.sh
 wget https://raw.githubusercontent.com/dreamsafari/wireguard-auto-config/master/addclient.sh && chmod +x addclient.sh
 sudo ./addclient.sh
 ```
+
+##Acknowledgements
+
+Some of the code comes from: https://withdewhua.space/2018/11/10/wireguard/
