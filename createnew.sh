@@ -40,6 +40,7 @@ if [ `whoami` = "root" ];then
   PersistentKeepalive = 30" > client0.conf
   wg-quick up wg0
   qrencode -t ansiutf8 < /etc/wireguard/client0.conf
+  exit 0
 else
   echo "This script should be run as root. Now exit."
   exit 1
