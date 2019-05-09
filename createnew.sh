@@ -11,7 +11,6 @@ if [ `whoami` = "root" ];then
   if [ $(cat /proc/sys/net/ipv4/ip_forward) = 0 ];then
     echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
     sysctl -p
-  else
   fi
   umask 077
   wg genkey | tee server_privatekey | wg pubkey > server_publickey
