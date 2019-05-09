@@ -21,6 +21,6 @@ wget https://raw.githubusercontent.com/dreamsafari/wireguard-auto-config/master/
 sudo ./addclient.sh
 ```
 
-##Acknowledgements
+## Acknowledgements
 
 Some of the code comes from: https://withdewhua.space/2018/11/10/wireguard/
