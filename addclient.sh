@@ -1,5 +1,6 @@
 #!/bin/bash
 id=$[$(cat count)+1]
+cd /etc/wireguard/
 wg-quick down wg0
 wg genkey | tee client${id}_privatekey | wg pubkey > client${id}_publickey
 echo "
