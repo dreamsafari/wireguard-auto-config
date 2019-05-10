@@ -1,5 +1,6 @@
 #!/bin/bash
 id=$[$(cat count)+1]
+ip=$(curl -s http://ipv4.icanhazip.com)
 echo $id > count
 cd /etc/wireguard/
 wg-quick down wg0
@@ -16,7 +17,7 @@ MTU = 1420
 
 [Peer]
 PublicKey = $(cat server_publickey)
-Endpoint = 159.89.140.51:40937
+Endpoint = $ip:13813
 AllowedIPs = 0.0.0.0/0, ::0/0
 PersistentKeepalive = 25 " > client${id}.conf
 echo $id > count
