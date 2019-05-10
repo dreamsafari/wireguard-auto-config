@@ -8,6 +8,12 @@ wg-quick down wg0 > /dev/null
 echo 0 > count
 add-apt-repository ppa:wireguard/wireguard -y
 apt install wireguard resolvconf qrencode -y
+if [ $(sysctl net.ipv4.tcp_congestion_control) ! = "net.ipv4.tcp_congestion_control = bbr" ];then
+modprobe tcp_bbr
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+fi
 if [ $(cat /proc/sys/net/ipv4/ip_forward) = 0 ];then
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 sysctl -p
