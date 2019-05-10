@@ -1,8 +1,8 @@
 #!/bin/bash
+cd /etc/wireguard/
 id=$[$(cat count)+1]
 ip=$(curl -s http://ipv4.icanhazip.com)
 echo $id > count
-cd /etc/wireguard/
 wg-quick down wg0
 wg genkey | tee client${id}_privatekey | wg pubkey > client${id}_publickey
 echo "
